@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mood Journal with AI Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><text y="50" font-size="48">😊</text></svg>'
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-theme="calm">
+    <div class="app-shell">
+      <header class="hero card">
+        <div>
+          <p class="eyebrow">Mood Journal with AI Insights</p>
+          <h1>Apne feelings track karo, patterns samjho, aur better reflect karo.</h1>
+          <p class="hero-copy">
+            Daily mood logging, notes, charts, calendar history, aur smart weekly
+            summary ek hi calming space me.
+          </p>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-pill">
+            <span>Aaj</span>
+            <strong id="todayMoodLabel">Abhi mood log nahi hua</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Current streak</span>
+            <strong id="streakCount">0 din</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Weekly vibe</span>
+            <strong id="weeklyVibe">Balanced</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="card span-7">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Daily check-in</p>
+              <h2>Aaj aap kaisa feel kar rahe ho?</h2>
+            </div>
+            <span class="date-chip" id="todayDate"></span>
+          </div>
+
+          <div class="mood-picker" id="moodPicker"></div>
+
+          <label class="notes-field">
+            <span>Notes</span>
+            <textarea
+              id="notesInput"
+              placeholder="Aaj ke mood ko kis cheez ne affect kiya? Thoughts, wins, triggers, ya gratitude yahan likho."
+            ></textarea>
+          </label>
+
+          <div class="action-row">
+            <button class="primary-btn" id="saveEntryBtn">Aaj ka mood save karo</button>
+            <p class="helper-text" id="saveMessage">Aapki entries isi browser me saved rahengi.</p>
+          </div>
+        </section>
+
+        <section class="card span-5">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">AI summary</p>
+              <h2>Weekly insight</h2>
+            </div>
+          </div>
+
+          <div class="insight-box">
+            <p id="insightHeadline" class="insight-headline">Logging start karo aur apni mood story dekho.</p>
+            <p id="insightSummary" class="insight-text">
+              Kuch daily entries add karo aur yeh section aapke weekly emotional
+              pattern, changes, aur simple suggestions dikhayega.
+            </p>
+            <ul class="insight-list" id="insightList"></ul>
+          </div>
+        </section>
+
+        <section class="card span-7">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Mood trends</p>
+              <h2>Beautiful charts</h2>
+            </div>
+          </div>
+
+          <div class="chart-grid">
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3>Last 7 days</h3>
+                <span>Energy curve</span>
+              </div>
+              <div class="bar-chart" id="barChart"></div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-header">
+                <h3>Mood mix</h3>
+                <span>Distribution</span>
+              </div>
+              <div class="distribution-chart" id="distributionChart"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card span-5">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Recent entries</p>
+              <h2>Mood history</h2>
+            </div>
+          </div>
+
+          <div class="history-list" id="historyList"></div>
+        </section>
+
+        <section class="card span-12">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Calendar view</p>
+              <h2>Mood history calendar</h2>
+            </div>
+            <div class="calendar-nav">
+              <button class="ghost-btn" id="prevMonthBtn" aria-label="Pichhla mahina">←</button>
+              <strong id="calendarMonthLabel"></strong>
+              <button class="ghost-btn" id="nextMonthBtn" aria-label="Agla mahina">→</button>
+            </div>
+          </div>
+
+          <div class="calendar-grid calendar-days">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+          </div>
+          <div class="calendar-grid" id="calendarGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
